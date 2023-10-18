@@ -1,0 +1,63 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+
+#header{
+	text-align: center;
+	font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+	font-size:25px;
+}
+#page{
+	margin: 40px;
+	margin-top: 0;
+}
+#customers {
+	font-family: Arial, Helvetica, sans-serif;
+	border-collapse: collapse;
+	width: 100%;
+	}
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4CAF50;
+  color: white;
+}
+</style>
+</head>
+<body>
+	<div id="page">
+		<h3 id="header">Data Transaksi</h4>
+	
+
+<table id="customers">
+  <tr>
+    <th>Nama Petugas</th>
+    <th>Nama Siswa</th>
+	<th>Tanggal Pembayaran</th>
+	<th>Jumlah Bayar</th>
+	
+  </tr>
+  <% data.forEach(function(data) { %>
+	<tr>
+		<td><%= data.nama_petugas %></td>
+		<td><%= data.nama %></td>
+		<td><%=  data.tgl_bayar %></td>
+		<td><%= data.jumlah_bayar %></td>
+		<% }) %>
+	</tr>
+</table>
+</div>
+</body>
+</html>
