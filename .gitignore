@@ -1,0 +1,13 @@
+# Folder node_modules
+node_modules/
+
+# Environment file
+.env
+
+# Log files
+*.log
+
+# Sistem cache/editor
+.vscode/
+.idea/
+.DS_Store

@@ -42,6 +42,7 @@ class Login{
                 response.status(412).json(loginResponse);
             }else{
                 await helper.loginPetugas(data,(result)=>{
+                    console.log(result);
                     if(result[0] === undefined ){
                         loginResponse.error = true;
                         loginResponse.message = `Username or password invalid`;

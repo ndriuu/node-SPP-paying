@@ -1,5 +1,6 @@
 require('dotenv').config()
 const express = require('express')
+
 const bodyParser = require('body-parser');
 const session = require("express-session");
 const Kelas = require('./api/admin/kelas/router');
@@ -17,7 +18,6 @@ class Server{
         this.host = process.env.DB_HOST;
         this.app = express();
     }
-
     appConfig(){
         this.app.use(express.static(__dirname + "/views"));
         this.app.set("view engine", "ejs");
@@ -49,18 +49,23 @@ class Server{
     loginRoutes(){
         new Login(this.app).loginConfig();
     }
-    appExecute(){
-
+    appExecute() {
         this.appConfig();
         this.adminRoutes();
         this.petugasRoutes();
         this.siswaRoutes();
         this.loginRoutes();
 
+        // Perbaikan di sini
+        this.app.get('/', (req, res) => {
+            res.send('Selamat datang di aplikasi SPP!');
+        });
+
         this.app.listen(this.port, this.host, () => {
             console.log(`Listening on http://${this.host}:${this.port}`);
         });
     }
+
 }
 const app = new Server();
 app.appExecute();
